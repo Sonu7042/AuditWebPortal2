@@ -17,6 +17,7 @@ export default function ProjectReports() {
     // 🔥 CHECK INSIDE reportData
     if (!storedData.disableReport) return;
 
+
     const newReport = {
       id: 1,
       brand: storedData.company || "New Report",
@@ -29,10 +30,10 @@ export default function ProjectReports() {
       nonConformities:
         storedData.createNonConformity?.length || 0,
     };
-
     setReports([newReport]);
-
   }, []);
+
+
 
   // ✅ DELETE REPORT
   const handleDelete = () => {
