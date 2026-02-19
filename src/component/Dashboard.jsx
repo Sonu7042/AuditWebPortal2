@@ -5,6 +5,7 @@ import logo from "../assets/Bexex-logo.png";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMailUnreadOutline } from "react-icons/io5";
 import { BiLogOutCircle } from "react-icons/bi";
+import dashbordImage from "../assets/dashbord_image2.jpg"
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -108,8 +109,7 @@ export default function Dashboard() {
     <div
       className="min-h-screen bg-cover bg-center font-sans relative"
       style={{
-        backgroundImage:
-          "url('https://images.squarespace-cdn.com/content/v1/58586fa5ebbd1a60e7d76d3e/1496131726712-SIG568IE1NPN4EQG8QT5/image-asset.jpeg')",
+        backgroundImage: `url(${dashbordImage})`,backgroundSize: "cover", backgroundPosition: "center",
       }}
     >
       {/* ================= HEADER ================= */}
