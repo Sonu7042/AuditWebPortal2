@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Trash2, Info, ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ProjectReports() {
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ export default function ProjectReports() {
       </div>
 
       {/* REPORT LIST */}
-      <div className="p-6 space-y-6">
+      <Link to={"/projecCompanies/summary"} className="p-6 space-y-6">
         {reports.length === 0 ? (
           <p className="text-center text-gray-500">
             No reports available.
@@ -182,7 +182,7 @@ export default function ProjectReports() {
             </div>
           ))
         )}
-      </div>
+      </Link>
     </div>
   );
 }

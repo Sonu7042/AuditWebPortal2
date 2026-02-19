@@ -35,6 +35,8 @@ export default function ProjectCompanies() {
   const [showAttentionModal, setShowAttentionModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(86400);
+  const [isReportValid, setIsReportValid] = useState(false);
+
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -178,6 +180,7 @@ export default function ProjectCompanies() {
         selectedCompany={selectedCompany}
         selectedAudit={selectedAudit}
         setShowAttentionModal={setShowAttentionModal}
+        isReportValid={isReportValid} 
       />
 
       <TopInfoBar />
@@ -185,7 +188,9 @@ export default function ProjectCompanies() {
       <Routes>
         <Route
           path="report"
-          element={<CompanyReportView reportSections={reportSections} />}
+          element={<CompanyReportView reportSections={reportSections} 
+           setIsReportValid={setIsReportValid}  
+           />}
         />
 
         <Route

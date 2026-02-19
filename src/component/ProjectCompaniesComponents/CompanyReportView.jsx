@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
 
-export default function CompanyReportView({ reportSections }) {
+export default function CompanyReportView({ reportSections, setIsReportValid }) {
   const { visitedSections, setVisitedSections } =
     useContext(AppContext);
 
@@ -32,6 +32,9 @@ export default function CompanyReportView({ reportSections }) {
     }
   }, []);
 
+
+  
+
   // ✅ SAVE INTO reportData
   const saveReportInfo = (desc, obs) => {
     const existingData =
@@ -50,6 +53,16 @@ export default function CompanyReportView({ reportSections }) {
   useEffect(() => {
     saveReportInfo(technicalDescription, observations);
   }, [technicalDescription, observations]);
+
+
+
+  useEffect(() => {
+  const isValid =
+    technicalDescription.trim() !== "" &&
+    observations.trim() !== "";
+
+  setIsReportValid(isValid);
+}, [technicalDescription, observations]);
 
   return (
     <div className="flex-1 flex flex-col bg-[#f5f6f7] overflow-hidden">

@@ -9,7 +9,8 @@ export default function ProjectHeader({
     isAudit,
     selectedCompany,
     selectedAudit,
-    setShowAttentionModal
+    setShowAttentionModal,
+     isReportValid 
 }) {
     const navigate = useNavigate();
 
@@ -24,27 +25,40 @@ export default function ProjectHeader({
             <h1 className="text-sm tracking-widest font-medium text-gray-700">
                 {isReport ? `Company report: ${selectedCompany}` : "TECHNICAL PROJECT REPORT"}
             </h1>
-            <button
-                onClick={() => {
-                    if (isReport) {
-                        // Save Logic
-                    } else if (isSummary) {
-                        // Final Step Logic
-                    } else if (isPhases) {
-                        navigate("/projecCompanies/summary", { replace: true });
-                        setShowAttentionModal(true);
-                    } else if (isAudit) {
-                        navigate("/projecCompanies/phases", { replace: true });
-                    }
-                }}
-                disabled={!selectedAudit && !isSummary && !isReport && !isPhases}
-                className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-300 ${(selectedAudit || isSummary || isReport || isPhases)
-                    ? "bg-blue-600 text-white shadow-md hover:bg-blue-700 active:scale-95"
-                    : "bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300"
-                    }`}
-            >
-                {isReport ? "Save" : isSummary ? "Complete Report" : "Next"}
-            </button>
+          <button
+  onClick={() => {
+    if (isReport) {
+      console.log("Saved successfully");
+
+      // 🔥 Navigate to dashboard after save
+      navigate("/dashboard", { replace: true });
+
+    } else if (isSummary) {
+      // Final Step Logic
+      navigate("/dashboard", { replace: true });
+
+    } else if (isPhases) {
+      navigate("/projecCompanies/summary", { replace: true });
+      setShowAttentionModal(true);
+
+    } else if (isAudit) {
+      navigate("/projecCompanies/phases", { replace: true });
+    }
+  }}
+  disabled={
+    isReport
+      ? !isReportValid
+      : !selectedAudit && !isSummary && !isPhases
+  }
+  className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-300 ${
+    (isReport ? isReportValid : selectedAudit || isSummary || isPhases)
+      ? "bg-blue-600 text-white shadow-md hover:bg-blue-700 active:scale-95"
+      : "bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300"
+  }`}
+>
+  {isReport ? "Save" : isSummary ? "Complete Report" : "Next"}
+</button>
+
         </div>
     );
 }
