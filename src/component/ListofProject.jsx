@@ -8,6 +8,7 @@ import {
   CheckCircle,
   X,
 } from "lucide-react";
+import { LuClockAlert } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
 const defaultProjects = [
@@ -104,33 +105,39 @@ const ListofProject = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 font-sans">
+    <div className="min-h-screen bg-gray-700 text-gray-800 font-sans">
       {/* ================= HEADER ================= */}
       <div className="bg-white border-b sticky top-0 z-10">
-        <div className="px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="px-8 h-20 flex items-center justify-between">
+          <div className="w-full flex items-center justify-between">
             <button
               onClick={() => navigate("/dashboard")}
-              className="p-2 rounded-lg hover:bg-gray-100 transition"
+              className="p-2 hover:bg-gray-100 rounded-full border-2 border-gray-300 transition-colors cursor-pointer"
             >
               <ChevronLeft size={22} />
             </button>
-            <h1 className="text-lg font-semibold">List of Projects</h1>
+            <h1 className="text-[20px] font-semibold">List of Projects</h1>
+            <button className="ml-4 px-3 py-1 text-gray-700 border border-gray-700 rounded-lg text-md hover:bg-gray-300 transition">
+              Select All
+            </button>
           </div>
         </div>
 
         {/* Info Bar */}
-        <div className="px-4 h-12 flex items-center justify-between border-t text-sm text-gray-500 bg-gray-50">
-          <div className="flex items-center gap-2">
-            <Info size={16} />
-            <span>List of projects</span>
-          </div>
-
+        <div className="px-8 h-12 flex items-center justify-between border-t text-sm text-gray-500 bg-gray-50">
+          <div className="w-full flex items-center justify-between">
+            <div className="flex gap-8">
+            <Info size={20} />
+            <span className="text-[16px]">List of projects</span>
+            </div>
+            <div>
           <HelpCircle
             size={20}
             className="text-blue-500 cursor-pointer hover:scale-110 transition"
             onClick={handleHelpClick}
           />
+        </div>
+          </div>
         </div>
 
         {/* Help Modal */}
@@ -144,7 +151,7 @@ const ListofProject = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-700"
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 cursor-pointer"
                 onClick={() => setShowModal(false)}
               >
                 <X size={18} />
@@ -153,7 +160,7 @@ const ListofProject = () => {
                 Help Information
               </h2>
               <p className="text-sm text-gray-600">
-                This section shows the list of available projects.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptate iste, minima architecto nostrum aliquid beatae laborum exercitationem, sapiente qui velit iure aut ea assumenda quibusdam laudantium quae, vitae cupiditate.
               </p>
             </div>
           </div>
@@ -161,32 +168,32 @@ const ListofProject = () => {
       </div>
 
       {/* ================= PROJECT LIST ================= */}
-      <div className="px-4 py-6 space-y-4">
+      <div className="py-6 space-y-4 px-8">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-white rounded-2xl border shadow-sm hover:shadow-md transition flex flex-col md:flex-row overflow-hidden"
+            className="bg-white border shadow-sm hover:shadow-md transition flex flex-col md:flex-row overflow-hidden"
           >
             {/* Status */}
-            <div className="md:w-40 w-full flex md:flex-col items-center justify-between md:justify-center gap-3 p-4 bg-gray-50 border-b md:border-b-0 md:border-r">
+            <div className="md:w-40 w-full flex md:flex-col items-center justify-between md:justify-center gap-2 p-4 bg-gray-50 border-b md:border-b-0 md:border-r">
               {project.isUpdated ? (
-                <div className="bg-green-100 p-3 rounded-xl">
+                <div className="">
                   <CheckCircle
                     className="text-green-600"
-                    size={28}
+                    size={62}
                   />
                 </div>
               ) : (
-                <div className="bg-red-100 p-3 rounded-xl">
-                  <AlertTriangle
+                <div className="">
+                  <LuClockAlert
                     className="text-red-500"
-                    size={28}
+                    size={62}
                   />
                 </div>
               )}
 
               <div className="text-[11px] text-gray-500 text-center">
-                <div className="font-semibold">
+                <div className="font-semibold text-[14px]">
                   Last download
                 </div>
                 <div>{project.lastDownload}</div>
@@ -194,19 +201,19 @@ const ListofProject = () => {
             </div>
 
             {/* Info */}
-            <div className="flex-1 p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex-1 px-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex-1">
-                <h3 className="text-base font-semibold mb-1">
+                <h3 className=" w-full pb-3 border-b border-gray-300 text-3xl font-normal mb-3">
                   {project.name}
                 </h3>
 
-                <p className="text-xs text-gray-400 mb-2 truncate">
+                <p className="text-md text-gray-400 mb-2 truncate">
                   {project.details}
                 </p>
 
                 <div className="flex flex-wrap gap-6 text-xs text-gray-500">
                   <div>
-                    <span className="font-semibold">
+                    <span className="font-semibold text-sm">
                       Market:
                     </span>{" "}
                     {project.market}
@@ -250,7 +257,7 @@ const ListofProject = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
-            <div className="p-4 border-b bg-gray-50 text-center font-semibold text-blue-600">
+            <div className="p-4 border-b bg-gray-50 text-center font-semibold text-[#181819]">
               Download Projects
             </div>
 
