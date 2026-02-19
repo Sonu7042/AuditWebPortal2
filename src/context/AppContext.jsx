@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 
-
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
@@ -15,128 +14,177 @@ export const AppProvider = ({ children }) => {
   });
 
   const [savedMachinery, setSavedMachinery] = useState([]);
-
   const [visitedSections, setVisitedSections] = useState([]);
 
-const [auditSections, setAuditSections] = useState(() => {
-  const stored = JSON.parse(localStorage.getItem("reportData")) || {};
-  return stored.auditSections || [
-    {
-      id: 1,
-      title: "GENERAL PROJECT STATUS",
-      subSections: [
-        {
-          id: 1,
-          title: "Project Definition",
-          questions: [
-            {
-              id: 1,
-              question:
-                "Is project scope clearly defined as per ISO 9001 requirements?",
-              status: "na",
-              isSynced: false,
-              images: [],
-              description: "",
-            },
-            {
-              id: 2,
-              question:
-                "Are risk assessments conducted before starting site activities?",
-              status: "na",
-              isSynced: false,
-              images: [],
-              description: "",
-            },
-            {
-              id: 3,
-              question:
-                "Is documented information properly controlled and updated?",
-              status: "na",
-              isSynced: false,
-              images: [],
-              description: "",
-            },
-            {
-              id: 4,
-              question:
-                "Are internal audits conducted periodically?",
-              status: "na",
-              isSynced: false,
-              images: [],
-              description: "",
-            },
-            {
-              id: 5,
-              question:
-                "Is management review performed as per ISO standards?",
-              status: "na",
-              isSynced: false,
-              images: [],
-              description: "",
-            },
-          ],
-        },
-      ],
-    },
-    // 🔥 KEEP ALL YOUR OTHER SECTIONS SAME (no change)
-  ];
-});
+  // ================= AUDIT =================
+  const [auditSections, setAuditSections] = useState(() => {
+    const stored = JSON.parse(localStorage.getItem("reportData")) || {};
+    return stored.auditSections || [
+      {
+        id: 1,
+        title: "GENERAL PROJECT STATUS",
+        subSections: [
+          {
+            id: 1,
+            title: "Project Definition",
+            questions: [
+              {
+                id: 1,
+                question:
+                  "Is project scope clearly defined as per ISO 9001 requirements?",
+                status: "na",
+                isSynced: false,
+                images: [],
+                description: "",
+              },
+            ],
+          },
+        ],
+      },
+    ];
+  });
 
-  // 🔥 SAVE (Editable)
+  // ================= PREVENT PLAN (NEW ADDED) =================
+  const [preventPlanSections, setPreventPlanSections] = useState(() => {
+    const stored = JSON.parse(localStorage.getItem("reportData")) || {};
+    return stored.preventPlanSections || [
+      {
+        id: 1,
+        title: "PREVENTIVE ACTION PLAN",
+        subSections: [
+          {
+            id: 1,
+            title: "Safety Measures",
+            questions: [
+              {
+                id: 1,
+                question:
+                  "Are preventive safety controls implemented properly?",
+                status: "na",
+                isSynced: false,
+                images: [],
+                description: "",
+              },
+            ],
+          },
+        ],
+      },
+    ];
+  });
+
+  // 🔥 SAVE (Editable) - AUDIT
   const updateQuestionStatus = (sectionId, subId, questionId, status, data) => {
     setAuditSections((prev) =>
       prev.map((section) =>
         section.id === sectionId
           ? {
-            ...section,
-            subSections: section.subSections.map((sub) =>
-              sub.id === subId
-                ? {
-                  ...sub,
-                  questions: sub.questions.map((q) =>
-                    q.id === questionId
-                      ? {
-                        ...q,
-                        status,
-                        images: [data.descriptionImage, data.correctiveImage],
-                        description: data.description,
-                      }
-                      : q
-                  ),
-                }
-                : sub
-            ),
-          }
+              ...section,
+              subSections: section.subSections.map((sub) =>
+                sub.id === subId
+                  ? {
+                      ...sub,
+                      questions: sub.questions.map((q) =>
+                        q.id === questionId
+                          ? {
+                              ...q,
+                              status,
+                              images: [
+                                data.descriptionImage,
+                                data.correctiveImage,
+                              ],
+                              description: data.description,
+                            }
+                          : q
+                      ),
+                    }
+                  : sub
+              ),
+            }
           : section
       )
     );
   };
 
-  // 🔥 SYNCHRONISE (Lock)
-  // 🔒 SYNCHRONISE (LOCK QUESTION)
+  // 🔥 SAVE (Editable) - PREVENT PLAN (SAME LOGIC JUST STATE CHANGE)
+  const updatePreventPlanStatus = (sectionId, subId, questionId, status, data) => {
+    setPreventPlanSections((prev) =>
+      prev.map((section) =>
+        section.id === sectionId
+          ? {
+              ...section,
+              subSections: section.subSections.map((sub) =>
+                sub.id === subId
+                  ? {
+                      ...sub,
+                      questions: sub.questions.map((q) =>
+                        q.id === questionId
+                          ? {
+                              ...q,
+                              status,
+                              images: [
+                                data.descriptionImage,
+                                data.correctiveImage,
+                              ],
+                              description: data.description,
+                            }
+                          : q
+                      ),
+                    }
+                  : sub
+              ),
+            }
+          : section
+      )
+    );
+  };
+
+  // 🔒 SYNCHRONISE - AUDIT
   const synchroniseQuestion = (sectionId, subId, questionId) => {
     setAuditSections((prev) =>
       prev.map((section) =>
         section.id === sectionId
           ? {
-            ...section,
-            subSections: section.subSections.map((sub) =>
-              sub.id === subId
-                ? {
-                  ...sub,
-                  questions: sub.questions.map((q) =>
-                    q.id === questionId ? { ...q, isSynced: true } : q
-                  ),
-                }
-                : sub
-            ),
-          }
+              ...section,
+              subSections: section.subSections.map((sub) =>
+                sub.id === subId
+                  ? {
+                      ...sub,
+                      questions: sub.questions.map((q) =>
+                        q.id === questionId ? { ...q, isSynced: true } : q
+                      ),
+                    }
+                  : sub
+              ),
+            }
           : section
       )
     );
   };
 
-  // 🔥 ADD NEW QUESTION
+  // 🔒 SYNCHRONISE - PREVENT PLAN (SAME LOGIC)
+  const synchronisePreventPlanQuestion = (sectionId, subId, questionId) => {
+    setPreventPlanSections((prev) =>
+      prev.map((section) =>
+        section.id === sectionId
+          ? {
+              ...section,
+              subSections: section.subSections.map((sub) =>
+                sub.id === subId
+                  ? {
+                      ...sub,
+                      questions: sub.questions.map((q) =>
+                        q.id === questionId ? { ...q, isSynced: true } : q
+                      ),
+                    }
+                  : sub
+              ),
+            }
+          : section
+      )
+    );
+  };
+
+  // 🔥 ADD NEW QUESTION - AUDIT
   const addNewQuestion = (sectionId, subId, questionText) => {
     if (!questionText.trim()) {
       alert("Please enter a question");
@@ -147,46 +195,85 @@ const [auditSections, setAuditSections] = useState(() => {
       prev.map((section) =>
         section.id === sectionId
           ? {
-            ...section,
-            subSections: section.subSections.map((sub) =>
-              sub.id === subId
-                ? {
-                  ...sub,
-                  questions: [
-                    ...sub.questions,
-                    {
-                      id:
-                        sub.questions.length > 0
-                          ? Math.max(...sub.questions.map(q => q.id)) + 1
-                          : 1,
-                      question: questionText,
-                      status: "na",
-                      isSynced: false,
-                      images: [],
-                      description: "",
-                    },
-                  ],
-                }
-                : sub
-            ),
-          }
+              ...section,
+              subSections: section.subSections.map((sub) =>
+                sub.id === subId
+                  ? {
+                      ...sub,
+                      questions: [
+                        ...sub.questions,
+                        {
+                          id:
+                            sub.questions.length > 0
+                              ? Math.max(...sub.questions.map(q => q.id)) + 1
+                              : 1,
+                          question: questionText,
+                          status: "na",
+                          isSynced: false,
+                          images: [],
+                          description: "",
+                        },
+                      ],
+                    }
+                  : sub
+              ),
+            }
           : section
       )
     );
   };
 
+  // 🔥 ADD NEW QUESTION - PREVENT PLAN (SAME LOGIC)
+  const addNewPreventPlanQuestion = (sectionId, subId, questionText) => {
+    if (!questionText.trim()) {
+      alert("Please enter a question");
+      return;
+    }
 
-  useEffect(() => {
-  const existing =
-    JSON.parse(localStorage.getItem("reportData")) || {};
-
-  const updated = {
-    ...existing,
-    auditSections,
+    setPreventPlanSections((prev) =>
+      prev.map((section) =>
+        section.id === sectionId
+          ? {
+              ...section,
+              subSections: section.subSections.map((sub) =>
+                sub.id === subId
+                  ? {
+                      ...sub,
+                      questions: [
+                        ...sub.questions,
+                        {
+                          id:
+                            sub.questions.length > 0
+                              ? Math.max(...sub.questions.map(q => q.id)) + 1
+                              : 1,
+                          question: questionText,
+                          status: "na",
+                          isSynced: false,
+                          images: [],
+                          description: "",
+                        },
+                      ],
+                    }
+                  : sub
+              ),
+            }
+          : section
+      )
+    );
   };
 
-  localStorage.setItem("reportData", JSON.stringify(updated));
-}, [auditSections]);
+  useEffect(() => {
+    const existing =
+      JSON.parse(localStorage.getItem("reportData")) || {};
+
+    const updated = {
+      ...existing,
+      auditSections,
+      preventPlanSections,
+    };
+
+    localStorage.setItem("reportData", JSON.stringify(updated));
+  }, [auditSections, preventPlanSections]);
 
   return (
     <AppContext.Provider
@@ -196,11 +283,15 @@ const [auditSections, setAuditSections] = useState(() => {
         savedMachinery,
         setSavedMachinery,
         auditSections,
+        preventPlanSections,
         updateQuestionStatus,
+        updatePreventPlanStatus,
         synchroniseQuestion,
+        synchronisePreventPlanQuestion,
         visitedSections,
         setVisitedSections,
-        addNewQuestion
+        addNewQuestion,
+        addNewPreventPlanQuestion
       }}
     >
       {children}

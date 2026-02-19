@@ -83,7 +83,7 @@ export default function ProjectCompanies() {
       badge: "1",
       link: "/audit-checklist",
     },
-    { title: "PREVENTIVE PLAN", icon: <ClipboardCheck size={40} />, link: "#" },
+    { title: "PREVENTIVE PLAN", icon: <ClipboardCheck size={40} />, link: "/preventivePlan" },
     { title: "WORKERS", icon: <Users size={40} />, link: "/workers" },
     { title: "MACHINERY", icon: <Settings size={40} />, link: "/machine" },
     // {

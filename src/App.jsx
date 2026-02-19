@@ -21,6 +21,7 @@ import AuditChecklist from "./component/AuditChecklist.jsx";
 import WorkPage from "./component/WorkPage.jsx";
 import VisitSheet from "./component/VisitSheet.jsx";
 import WorkPageRecurring from "./component/workPageRecurring.jsx";
+import PrevntivePans from "./component/PreventivePlan.jsx";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path="/nonConformities" element={<NonConformitiesPage />} />
           <Route path="/createNonConformity" element={<CreateNonConformity />} />
           <Route path="/visitSheet" element={<VisitSheet />} />
+          <Route path="/preventivePlan" element={<PrevntivePans />} />
         </Routes>
       </Router>
     </AppProvider>
