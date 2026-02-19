@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft , ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function ProjectHeader({
@@ -35,14 +35,15 @@ export default function ProjectHeader({
   }, [disableReport]);
 
   return (
-    <div className="h-14 flex items-center justify-between px-6 border-b border-gray-300 bg-[#f5f6f7]">
-      <ArrowLeft
-        className="text-gray-600 cursor-pointer"
-        size={20}
-        onClick={() => navigate("/dashboard", { replace: true })}
-      />
+    <div className="h-20 flex items-center justify-between px-6 border-b border-gray-300 bg-white">
+      <button
+      onClick={() => navigate("/dashboard")}
+      className="p-2 hover:bg-gray-100 rounded-full border-2 border-gray-300 transition-colors cursor-pointer"
+    >
+      <ChevronLeft size={22} />
+    </button>
 
-      <h1 className="text-sm tracking-widest font-medium text-gray-700">
+      <h1 className="font-[20px]  font-medium text-gray-700">
         {isReport
           ? `Company report: ${selectedCompany}`
           : "TECHNICAL PROJECT REPORT"}
@@ -72,11 +73,11 @@ export default function ProjectHeader({
             ? !isReportValid || disableReport
             : !selectedAudit && !isSummary && !isPhases
         }
-        className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-300 ${
+        className={`ml-4 px-4 py-1 rounded-lg text-md ${
           (isReport
             ? isReportValid && !disableReport
             : selectedAudit || isSummary || isPhases)
-            ? "bg-blue-600 text-white shadow-md hover:bg-blue-700 active:scale-95"
+            ? "bg-[#181819] text-white shadow-md hover:bg-black/50 active:scale-95"
             : "bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300"
         }`}
       >
