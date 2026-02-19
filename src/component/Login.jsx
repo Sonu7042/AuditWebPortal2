@@ -199,20 +199,33 @@ export default function Login() {
                 required
               />
 
-              <div className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() => setChecked(!checked)}
-                  className="cursor-pointer"
-                />
-                <span
-                  onClick={openPDF}
-                  className="cursor-pointer text-blue-600 hover:underline"
-                >
-                  I have read and accept the conditions
-                </span>
-              </div>
+              <div className="flex items-center gap-3 text-sm">
+  
+  {/* Toggle Button */}
+  <button
+    type="button"
+    onClick={() => setChecked(!checked)}
+    className={`relative w-11 h-6 flex items-center rounded-full transition-colors duration-300 ${
+      checked ? "bg-green-500" : "bg-gray-300"
+    }`}
+  >
+    <span
+      className={`absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+        checked ? "translate-x-5" : ""
+      }`}
+    />
+  </button>
+
+  {/* Text */}
+  <span
+    onClick={openPDF}
+    className="cursor-pointer text-blue-600 hover:underline"
+  >
+    I have read and accept the conditions
+  </span>
+
+</div>
+
 
               <div className="text-[1rem] text-gray-600 mt-2 leading-relaxed">
                 The information accessed by this means is confidential and, in the case that it contains personal data, it will be subject to the security and secrecy requirements established in the personal data protection legislation currently in force.

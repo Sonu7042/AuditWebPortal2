@@ -65,7 +65,7 @@ const WorkPage = () => {
     );
   }
 
-  navigate("/audit-checklist");
+  navigate("/audit-checklist", { replace: true });
 };
 
 

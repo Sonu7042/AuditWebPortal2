@@ -47,7 +47,7 @@ export default function PendingNonCompliance() {
       setShowPopup(true);
       return;
     }
-    navigate("/audit-checklist");
+    navigate("/audit-checklist", { replace: true });
   };
 
   const isAnyTaskCompleted = completedTasks.length > 0;

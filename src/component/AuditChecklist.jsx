@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { Link, replace, useNavigate } from "react-router-dom";
 import {
   FaChevronDown,
   FaChevronRight,
@@ -51,7 +51,9 @@ const AuditChecklist = () => {
 
       {/* HEADER */}
       <div className="bg-white border-b px-6 py-4 flex items-center justify-between">
+        <Link to="/projecCompanies/report">
         <ChevronLeft size={28} className="cursor-pointer" />
+        </Link>
         <h1 className="font-semibold text-gray-800 tracking-wide">
           INDERJEET BROS PROJECTS PVT. LTD.
         </h1>
@@ -70,7 +72,7 @@ const AuditChecklist = () => {
         </div>
 
         <div className="flex gap-4 text-gray-600">
-          <Home size={22} />
+          <Home size={22} /> 
           <HelpCircle size={22} />
         </div>
       </div>
@@ -203,7 +205,8 @@ const AuditChecklist = () => {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    `/work/${section.id}/${sub.id}/${q.id}/${q.status}`
+                                    `/work/${section.id}/${sub.id}/${q.id}/${q.status}`,
+                                    
                                   )
                                 }
                                 className="text-blue-600 text-sm underline"

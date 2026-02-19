@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
 
 export default function CompanyReportView({ reportSections, setIsReportValid }) {
-  const { visitedSections, setVisitedSections } =
-    useContext(AppContext);
 
+  const { visitedSections, setVisitedSections } =
+  useContext(AppContext);
   // ✅ Local State for Inputs
   const [technicalDescription, setTechnicalDescription] =
     useState("");
@@ -129,7 +129,7 @@ export default function CompanyReportView({ reportSections, setIsReportValid }) 
       </div>
 
       {/* ================= GRID ================= */}
-      <div className="flex-1 bg-white grid grid-cols-4 divide-x divide-y divide-gray-600 border-b border-gray-200">
+      <div className="flex-1 bg-white grid grid-cols-3 divide-x divide-y divide-gray-600 border-b border-gray-200">
         {reportSections.map((sec, i) => {
           const isVisited =
             visitedSections?.includes(sec.link);

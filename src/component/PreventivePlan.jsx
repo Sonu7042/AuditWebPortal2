@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaChevronDown,
   FaChevronRight,
@@ -11,7 +11,8 @@ import {
 import { ChevronLeft, Home, HelpCircle } from "lucide-react";
 
 const PreventPlan = () => {
- const { preventPlanSections, addNewPreventPlanQuestion } = useContext(AppContext);
+  const { preventPlanSections, addNewPreventPlanQuestion } =
+    useContext(AppContext);
   console.log("🚀 Prevent Plan Data:", preventPlanSections);
   const navigate = useNavigate();
 
@@ -48,10 +49,11 @@ const PreventPlan = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-
       {/* HEADER */}
       <div className="bg-white border-b px-6 py-4 flex items-center justify-between">
-        <ChevronLeft size={28} className="cursor-pointer" />
+        <Link to="/projecCompanies/report">
+          <ChevronLeft size={28} className="cursor-pointer" />
+        </Link>
         <h1 className="font-semibold text-gray-800 tracking-wide">
           INDERJEET BROS PROJECTS PVT. LTD.
         </h1>
@@ -61,9 +63,7 @@ const PreventPlan = () => {
       {/* PREVENTIVE BAR */}
       <div className="bg-gray-50 border-b px-6 py-3 flex items-center justify-between">
         <div>
-          <p className="font-semibold text-gray-700">
-            PREVENTIVE MANAGEMENT
-          </p>
+          <p className="font-semibold text-gray-700">PREVENTIVE MANAGEMENT</p>
           <p className="text-sm text-gray-500">
             Click on the corresponding phase to assess its risks
           </p>
@@ -77,11 +77,9 @@ const PreventPlan = () => {
 
       {/* MAIN LIST */}
       <div className="bg-white">
-
         {preventPlanSections.map((section) => {
-
           const allQuestions = section.subSections.flatMap(
-            (sub) => sub.questions
+            (sub) => sub.questions,
           );
 
           const mainCounts = getCounts(allQuestions);
@@ -90,14 +88,12 @@ const PreventPlan = () => {
 
           return (
             <div key={section.id} className="border-b">
-
               {/* MAIN ROW */}
               <div
                 onClick={() => handleMainClick(section.id)}
                 className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-gray-50"
               >
                 <div className="flex items-center gap-4">
-
                   {/* 🔥 ICON COLOR FIXED */}
                   <div
                     className={`p-3 rounded-full ${
@@ -115,15 +111,12 @@ const PreventPlan = () => {
                 </div>
 
                 <div className="flex items-center gap-6 text-sm">
-
                   <div className="flex items-center gap-1 text-green-600">
-                    <FaThumbsUp />
-                    ({mainCounts.up})
+                    <FaThumbsUp />({mainCounts.up})
                   </div>
 
                   <div className="flex items-center gap-1 text-red-600">
-                    <FaThumbsDown />
-                    ({mainCounts.down})
+                    <FaThumbsDown />({mainCounts.down})
                   </div>
 
                   <div className="text-orange-500 font-medium">
@@ -141,18 +134,16 @@ const PreventPlan = () => {
               {/* SUB SECTIONS */}
               {openMain === section.id &&
                 section.subSections.map((sub) => {
-
                   const subCounts = getCounts(sub.questions);
 
                   return (
                     <div key={sub.id} className="border-t">
-
                       <div
                         onClick={() =>
                           setOpenSub(
                             openSub === `${section.id}-${sub.id}`
                               ? null
-                              : `${section.id}-${sub.id}`
+                              : `${section.id}-${sub.id}`,
                           )
                         }
                         className="flex items-center justify-between px-12 py-3 cursor-pointer hover:bg-gray-50"
@@ -165,15 +156,12 @@ const PreventPlan = () => {
                         </div>
 
                         <div className="flex items-center gap-6 text-sm">
-
                           <div className="flex items-center gap-1 text-green-600">
-                            <FaThumbsUp />
-                            ({subCounts.up})
+                            <FaThumbsUp />({subCounts.up})
                           </div>
 
                           <div className="flex items-center gap-1 text-red-600">
-                            <FaThumbsDown />
-                            ({subCounts.down})
+                            <FaThumbsDown />({subCounts.down})
                           </div>
 
                           <div className="text-orange-500">
@@ -203,7 +191,7 @@ const PreventPlan = () => {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    `/work/${section.id}/${sub.id}/${q.id}/${q.status}`
+                                    `/work/${section.id}/${sub.id}/${q.id}/${q.status}`,
                                   )
                                 }
                                 className="text-blue-600 text-sm underline"
@@ -218,15 +206,12 @@ const PreventPlan = () => {
                             <input
                               type="text"
                               value={
-                                newQuestions[
-                                  `${section.id}-${sub.id}`
-                                ] || ""
+                                newQuestions[`${section.id}-${sub.id}`] || ""
                               }
                               onChange={(e) =>
                                 setNewQuestions({
                                   ...newQuestions,
-                                  [`${section.id}-${sub.id}`]:
-                                    e.target.value,
+                                  [`${section.id}-${sub.id}`]: e.target.value,
                                 })
                               }
                               placeholder="Add risk..."
@@ -238,7 +223,11 @@ const PreventPlan = () => {
                                 const key = `${section.id}-${sub.id}`;
                                 const text = newQuestions[key];
 
-                               addNewPreventPlanQuestion(section.id, sub.id, text);
+                                addNewPreventPlanQuestion(
+                                  section.id,
+                                  sub.id,
+                                  text,
+                                );
 
                                 setNewQuestions({
                                   ...newQuestions,
@@ -264,4 +253,3 @@ const PreventPlan = () => {
 };
 
 export default PreventPlan;
-

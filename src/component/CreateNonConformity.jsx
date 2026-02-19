@@ -10,7 +10,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { AppContext } from "../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CreateNonConformity() {
   const { formData, setFormData } = useContext(AppContext);
@@ -94,7 +94,9 @@ export default function CreateNonConformity() {
     <div className="bg-white border-b">
         <div className="flex items-center justify-between px-6 py-3">
           <div className="flex items-center gap-4">
+            <Link to="/machine">
             <ArrowLeft size={20} className="text-gray-600 cursor-pointer" />
+            </Link>
             <h1 className="text-sm font-medium text-gray-700">
               Create Non-conformity
             </h1>

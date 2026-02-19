@@ -48,7 +48,7 @@ const WorkPageRecurring = () => {
       }
     );
 
-    navigate("/audit-checklist");
+    navigate("/audit-checklist", { replace: true });
   };
 
   const handleSync = () => {
@@ -72,7 +72,7 @@ const WorkPageRecurring = () => {
       Number(questionId)
     );
 
-    navigate("/audit-checklist");
+    navigate("/audit-checklist", { replace: true });
   };
 
   return (

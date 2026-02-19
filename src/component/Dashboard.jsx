@@ -12,6 +12,7 @@ export default function Dashboard() {
   const [showNotification, setShowNotification] = useState(false);
   const [showMainPopup, setShowMainPopup] = useState(false);
   const [showMailPopup, setShowMailPopup] = useState(false);
+  const [isReportLocked, setIsReportLocked] = useState(false);
 
   // ✅ NEW PIN STATES
   const [showPinPopup, setShowPinPopup] = useState(false);
@@ -93,6 +94,16 @@ export default function Dashboard() {
     navigate("/");
   };
 
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("reportData")) || {};
+
+    if (data.disableReport) {
+      setIsReportLocked(true);
+    } else {
+      setIsReportLocked(false);
+    }
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-cover bg-center font-sans relative"
@@ -103,7 +114,6 @@ export default function Dashboard() {
     >
       {/* ================= HEADER ================= */}
       <div className="w-full bg-white/90 backdrop-blur-md shadow-md flex items-center justify-between px-6 py-3">
-
         <div className="flex items-center gap-4">
           <button>
             <BiLogOutCircle
@@ -111,9 +121,7 @@ export default function Dashboard() {
               className="text-2xl text-gray-700 hover:text-gray-900 transition cursor-pointer"
             />
           </button>
-          <span className="font-semibold text-gray-700">
-            Auditor01
-          </span>
+          <span className="font-semibold text-gray-700">Auditor01</span>
         </div>
 
         <div>
@@ -121,7 +129,6 @@ export default function Dashboard() {
         </div>
 
         <div className="flex items-center gap-4">
-
           <button
             onClick={() => setShowNotification(true)}
             className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-400 hover:bg-gray-100 transition cursor-pointer"
@@ -135,15 +142,12 @@ export default function Dashboard() {
           >
             <IoMailUnreadOutline className="text-xl text-gray-700" />
           </button>
-
         </div>
       </div>
 
       {/* ================= MAIN CONTENT ================= */}
       <div className="flex items-center justify-center min-h-[85vh]">
-
         <div className="bg-white/70 backdrop-blur-md shadow-2xl rounded-xl p-10 w-125 text-center border border-white/20">
-
           <h1 className="text-3xl font-semibold tracking-widest text-gray-800">
             BEXEXGLOBAL
           </h1>
@@ -152,16 +156,30 @@ export default function Dashboard() {
           </p>
 
           <div className="mt-10 space-y-4">
-
-            <button onClick={() => navigate("/createReport")} className="w-full py-4 bg-blue-900/90 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-800 transition duration-300 active:scale-95 cursor-pointer">
+            <button
+              disabled={isReportLocked}
+              onClick={() => navigate("/createReport")}
+              className={`w-full py-4 text-sm font-semibold rounded-lg shadow-md transition duration-300 active:scale-95 
+                ${
+                  isReportLocked
+                    ? "bg-blue-900/60 text-gray-700 cursor-not-allowed"
+                    : "bg-blue-900/90 text-white hover:bg-blue-800 cursor-pointer"
+                }`}
+            >
               NEW REPORT
             </button>
 
-            <button onClick={() => navigate("/projectReports")} className="w-full py-4 bg-blue-900/90 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 transition duration-300 cursor-pointer">
+            <button
+              onClick={() => navigate("/projectReports")}
+              className="w-full py-4 bg-blue-900/90 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 transition duration-300 cursor-pointer"
+            >
               REPORTS
             </button>
 
-            <button onClick={() => navigate("/ProductSync")} className="w-full py-4 bg-blue-900/90 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-800 transition duration-300 active:scale-95 cursor-pointer">
+            <button
+              onClick={() => navigate("/ProductSync")}
+              className="w-full py-4 bg-blue-900/90 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-800 transition duration-300 active:scale-95 cursor-pointer"
+            >
               PENDING SYNCHRONISATION
             </button>
 
@@ -180,7 +198,6 @@ export default function Dashboard() {
                 UPDATE PROJECT DATA
               </button>
             </div>
-
           </div>
         </div>
       </div>
@@ -189,10 +206,7 @@ export default function Dashboard() {
       {showPinPopup && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white w-100 rounded shadow-2xl p-8 text-center">
-
-            <h2 className="text-xl font-semibold mb-6">
-              Set Security PIN
-            </h2>
+            <h2 className="text-xl font-semibold mb-6">Set Security PIN</h2>
 
             <input
               type="password"
@@ -224,17 +238,16 @@ export default function Dashboard() {
       {showNotification && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white w-150 rounded shadow-2xl p-8">
-
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Important Notification
             </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
               The information accessed through this application is confidential.
-              Any misuse, unauthorized distribution, or access without permission
-              is strictly prohibited and may result in disciplinary and legal action.
-              Please ensure that all project data is handled according to company
-              policies and data protection regulations.
+              Any misuse, unauthorized distribution, or access without
+              permission is strictly prohibited and may result in disciplinary
+              and legal action. Please ensure that all project data is handled
+              according to company policies and data protection regulations.
             </p>
 
             <div className="text-right">
@@ -245,7 +258,6 @@ export default function Dashboard() {
                 Close
               </button>
             </div>
-
           </div>
         </div>
       )}
@@ -254,7 +266,6 @@ export default function Dashboard() {
       {showMainPopup && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white w-125 rounded shadow-xl overflow-hidden">
-
             <div className="flex justify-between items-center px-4 py-3 bg-gray-100">
               <button
                 onClick={() => setShowMainPopup(false)}
@@ -263,15 +274,12 @@ export default function Dashboard() {
                 Cancel
               </button>
 
-              <h2 className="font-semibold text-gray-700">
-                Select an option
-              </h2>
+              <h2 className="font-semibold text-gray-700">Select an option</h2>
 
               <div></div>
             </div>
 
             <div className="divide-y">
-
               <div
                 onClick={() => {
                   setShowMainPopup(false);
@@ -291,7 +299,6 @@ export default function Dashboard() {
               >
                 MS Outlook
               </div>
-
             </div>
           </div>
         </div>
@@ -301,14 +308,9 @@ export default function Dashboard() {
       {showMailPopup && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white w-112.5 rounded shadow-xl p-6 text-center">
+            <h2 className="text-lg font-semibold mb-4">Contact Support</h2>
 
-            <h2 className="text-lg font-semibold mb-4">
-              Contact Support
-            </h2>
-
-            <p className="text-gray-600 mb-6">
-              support@example.com
-            </p>
+            <p className="text-gray-600 mb-6">support@example.com</p>
 
             <button
               onClick={() => setShowMailPopup(false)}
@@ -316,16 +318,18 @@ export default function Dashboard() {
             >
               Close
             </button>
-
           </div>
         </div>
       )}
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
         .font-sans { font-family: 'Outfit', sans-serif; }
-      ` }} />
+      `,
+        }}
+      />
     </div>
   );
 }

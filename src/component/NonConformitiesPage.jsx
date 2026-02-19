@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   ArrowLeft,
   Home,
@@ -6,12 +6,48 @@ import {
   Globe,
   Info,
 } from "lucide-react";
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { Link } from "react-router-dom";
 
 export default function NonConformitiesPage() {
 
-  const { savedMachinery } = useContext(AppContext);
+  const [nonConformities, setNonConformities] = useState([]);
+
+  // 🔥 FETCH FROM reportData
+  useEffect(() => {
+    const reportData =
+      JSON.parse(localStorage.getItem("reportData")) || {};
+
+    setNonConformities(reportData.createNonConformity || []);
+  }, []);
+
+  // 🔥 DELETE FUNCTION
+  const handleDelete = (indexToDelete) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this Non-conformity?"
+    );
+
+    if (!confirmDelete) return;
+
+    const reportData =
+      JSON.parse(localStorage.getItem("reportData")) || {};
+
+    const updatedList =
+      (reportData.createNonConformity || []).filter(
+        (_, index) => index !== indexToDelete
+      );
+
+    const updatedReport = {
+      ...reportData,
+      createNonConformity: updatedList,
+    };
+
+    localStorage.setItem(
+      "reportData",
+      JSON.stringify(updatedReport)
+    );
+
+    setNonConformities(updatedList);
+  };
 
   return (
     <div className="min-h-screen bg-[#f5f6f7] flex flex-col">
@@ -19,10 +55,11 @@ export default function NonConformitiesPage() {
       {/* Top Header */}
       <div className="bg-white border-b">
 
-        {/* Top Bar */}
         <div className="flex items-center justify-between px-6 py-3">
           <div className="flex items-center gap-4">
-            <ArrowLeft className="text-gray-600 cursor-pointer" size={20} />
+            <Link to="/machine">
+              <ArrowLeft size={20} className="text-gray-600 cursor-pointer" />
+            </Link>
             <h1 className="text-sm font-medium text-gray-700">
               See Non-conformities
             </h1>
@@ -33,9 +70,8 @@ export default function NonConformitiesPage() {
           </button>
         </div>
 
-        {/* Info Section */}
+        {/* Info Section (unchanged) */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 px-6 py-4 border-t text-sm text-gray-600">
-
           <div>
             <p className="text-gray-400">Visit</p>
             <p>11-02-2026</p>
@@ -88,44 +124,38 @@ export default function NonConformitiesPage() {
         <div>Delete</div>
       </div>
 
-      {/* 🔥 DATA OR EMPTY STATE */}
-      {savedMachinery.length > 0 ? (
+      {/* DATA OR EMPTY STATE */}
+      {nonConformities.length > 0 ? (
 
-        savedMachinery.map((item, index) => (
+        nonConformities.map((item, index) => (
           <div
             key={index}
             className="bg-white border-b px-6 py-4 text-sm hidden md:grid grid-cols-7 items-center"
           >
-            {/* ID */}
             <div>{index + 1}</div>
 
-            {/* Machinery */}
             <div className="font-medium text-gray-800">
               {item.machinery}
             </div>
 
-            {/* Date of Incident */}
             <div>
               {new Date().toLocaleDateString()}
             </div>
 
-            {/* Date of Closure */}
-            <div className="text-gray-400">
-              -
-            </div>
+            <div className="text-gray-400">-</div>
 
-            {/* Synchronisation */}
             <div className="text-orange-500 font-medium">
               Pending
             </div>
 
-            {/* Recurring */}
             <div className="text-gray-400">
               No
             </div>
 
-            {/* Delete */}
-            <div className="text-red-500 cursor-pointer">
+            <div
+              onClick={() => handleDelete(index)}
+              className="text-red-500 cursor-pointer"
+            >
               Delete
             </div>
           </div>
@@ -133,9 +163,7 @@ export default function NonConformitiesPage() {
 
       ) : (
 
-        /* 🔹 ORIGINAL EMPTY STATE (UNCHANGED) */
         <div className="flex-1 flex flex-col items-center justify-center text-center bg-white">
-
           <div className="w-14 h-14 rounded-full border border-gray-400 flex items-center justify-center mb-4">
             <Info size={24} className="text-gray-500" />
           </div>
@@ -147,7 +175,6 @@ export default function NonConformitiesPage() {
           <p className="text-gray-400 text-xs mt-2">
             The user has not opened any Non-conformities associated with this section
           </p>
-
         </div>
 
       )}
