@@ -43,11 +43,11 @@ export default function CompanySelection({
 
           {selectedCompany === company && (
             <div className="px-8 py-4 bg-gray-50 border-b border-gray-200">
-              {selectedAudit && <p>● {selectedAudit}</p>}
+              {selectedAudit && <p className="font-medium text-md">● {selectedAudit}</p>}
 
               {checkedServices.length > 0 &&
                 checkedServices.map((idx, i) => (
-                  <p key={i}>● {services[idx]?.title}</p>
+                  <p className="ml-4" key={i}>- {services[idx]?.title}</p>
                 ))}
             </div>
           )}
