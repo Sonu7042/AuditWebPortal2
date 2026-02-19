@@ -79,7 +79,7 @@ export default function ProjectReports() {
   return (
     <div className="min-h-screen bg-gray-700">
       {/* HEADER */}
-      <div className="bg-white border-b border-gray-300 px-6 py-4 flex items-center justify-between">
+      <div className="bg-white h-20 border-b border-gray-300 px-6 py-4 flex items-center justify-between">
           <button onClick={() => window.history.back()} className="p-2 hover:bg-gray-100 rounded-full border-2 border-gray-300 transition-colors cursor-pointer" >
             <ChevronLeft size={24} />
           </button>

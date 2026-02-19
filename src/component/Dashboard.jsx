@@ -149,7 +149,7 @@ export default function Dashboard() {
       <div className="flex items-center justify-center min-h-[85vh]">
         <div className="bg-white/70 backdrop-blur-md shadow-2xl rounded-xl p-10 w-125 text-center border border-white/20">
           <h1 className="text-3xl font-semibold tracking-widest text-gray-800">
-            BEXEXGLOBAL
+            AUDIT<span className="text-red-700">-EX</span>
           </h1>
           <p className="text-xs text-gray-500 mt-2 uppercase tracking-tight">
             Report management V.1.0.27.0r64
