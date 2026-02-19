@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Trash2, Info, ArrowLeft } from "lucide-react";
+import { Trash2, Info , ChevronLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function ProjectReports() {
@@ -77,46 +77,51 @@ export default function ProjectReports() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-700">
       {/* HEADER */}
       <div className="bg-white border-b border-gray-300 px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <ArrowLeft
-            className="cursor-pointer text-gray-600"
-            onClick={() => navigate(-1)}
-          />
-          <h1 className="text-lg font-semibold text-gray-800">
-            List of Project Reports
+          <button onClick={() => window.history.back()} className="p-2 hover:bg-gray-100 rounded-full border-2 border-gray-300 transition-colors cursor-pointer" >
+            <ChevronLeft size={24} />
+          </button>
+          <h1 className="text-[20px] font-semibold text-gray-800">
+            See Project Reports
           </h1>
-        </div>
 
-        <Info className="text-gray-500" size={20} />
+        <Info className="w-6 h-6 text-blue-500 cursor-pointer" size={20} />
       </div>
 
+      <div className="flex items-center gap-8 px-8 h-12 bg-gray-100 text-sm text-gray-600 border-b border-gray-200">
+        <Info size={20} />
+        <span className="text-[16px]">List of completed reports pending synchronisation</span>
+      </div>
+
+
       {/* REPORT LIST */}
+      <div className="px-8 py-6">
       <Link to={"/projecCompanies/summary"} className="p-6 space-y-6">
         {reports.length === 0 ? (
           <p className="text-center text-gray-500">
             No reports available.
           </p>
+
         ) : (
           reports.map((report) => (
             <div
               key={report.id}
-              className="flex bg-white border border-gray-300 rounded-2xl shadow-sm overflow-hidden"
+              className="flex border border-gray-300 shadow-sm overflow-hidden"
             >
               {/* LEFT ID */}
-              <div className="w-40 border-r border-gray-300 flex flex-col items-center justify-center p-6 bg-gray-50">
-                <div className="w-14 h-14 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center font-semibold">
-                  Nº {report.id}
+              <div className="w-40 border-r border-gray-300 flex flex-col items-center justify-center p-6">
+                <div className="w-26 h-26 rounded-full bg-cyan-100 text-cyan text-2xl text-gray-700 flex items-center justify-center font-medium">
+                  N. {report.id}
                 </div>
               </div>
 
               {/* CENTER */}
-              <div className="flex-1 p-6">
-                <div className="flex justify-between items-start">
+              <div className="w-full flex items-start px-8 py-6 bg-white gap-6">
+                <div className="flex-1 ">
                   <div>
-                    <h2 className="text-lg font-semibold text-gray-800">
+                    <h2 className="w-full text-lg pb-3 border-b border-gray-400 font-semibold text-gray-800">
                       {report.brand}
                     </h2>
 
@@ -124,14 +129,6 @@ export default function ProjectReports() {
                       {report.location}
                     </p>
                   </div>
-
-                  <button
-                    onClick={() => handleDelete(report.id)}
-                    className="text-gray-400 hover:text-red-500 transition"
-                  >
-                    <Trash2 size={20} />
-                  </button>
-                </div>
 
                 {/* DETAILS */}
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-6 text-sm">
@@ -178,11 +175,22 @@ export default function ProjectReports() {
                     </p>
                   </div>
                 </div>
+                </div>
+
+                <button
+                    onClick={() => handleDelete(report.id)}
+                    className="text-gray-400 hover:text-red-500 transition cursor-pointer"
+                >
+                    <Trash2 size={24} />
+                </button>
               </div>
+
+
             </div>
           ))
         )}
       </Link>
+    </div>
     </div>
   );
 }
