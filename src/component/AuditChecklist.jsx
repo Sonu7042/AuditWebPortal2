@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { ChevronLeft, Home, HelpCircle } from "lucide-react";
 
+
 const AuditChecklist = () => {
   const { auditSections, addNewQuestion } = useContext(AppContext);
   console.log("🚀 ~ file: AuditChecklist.jsx:9 ~ AuditChecklist ~ auditSections:", auditSections);
