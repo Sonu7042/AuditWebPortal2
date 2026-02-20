@@ -152,7 +152,7 @@ export default function Dashboard() {
             AUDIT<span className="text-red-700">-EX</span>
           </h1>
           <p className="text-xs text-gray-500 mt-2 uppercase tracking-tight">
-            Report management V.1.0.27.0r64
+            Report management Portal
           </p>
 
           <div className="mt-10 space-y-4">
@@ -262,65 +262,50 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* ================= MAIL OPTION POPUP ================= */}
-      {showMainPopup && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white w-125 rounded shadow-xl overflow-hidden">
-            <div className="flex justify-between items-center px-4 py-3 bg-gray-100">
-              <button
-                onClick={() => setShowMainPopup(false)}
-                className="text-gray-600 hover:text-black"
-              >
-                Cancel
-              </button>
+  {/* ================= MAIL OPTION POPUP ================= */}
+{showMainPopup && (
+  <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <div className="bg-white w-125 rounded shadow-xl overflow-hidden">
+      <div className="flex justify-between items-center px-4 py-3 bg-gray-100">
+        <button
+          onClick={() => setShowMainPopup(false)}
+          className="text-gray-600 hover:text-black"
+        >
+          Cancel
+        </button>
 
-              <h2 className="font-semibold text-gray-700">Select an option</h2>
+        <h2 className="font-semibold text-gray-700">Select an option</h2>
 
-              <div></div>
-            </div>
+        <div></div>
+      </div>
 
-            <div className="divide-y">
-              <div
-                onClick={() => {
-                  setShowMainPopup(false);
-                  setShowMailPopup(true);
-                }}
-                className="p-4 cursor-pointer hover:bg-gray-100"
-              >
-                Mail
-              </div>
-
-              <div
-                onClick={() => {
-                  setShowMainPopup(false);
-                  setShowMailPopup(true);
-                }}
-                className="p-4 cursor-pointer hover:bg-gray-100"
-              >
-                MS Outlook
-              </div>
-            </div>
-          </div>
+      <div className="divide-y">
+        {/* Mail Option */}
+        <div
+          onClick={() => {
+            window.location.href = "mailto:info@bexexglobal.com";
+            setShowMainPopup(false);
+          }}
+          className="p-4 cursor-pointer hover:bg-gray-100"
+        >
+          Mail
         </div>
-      )}
 
-      {/* ================= MAIL POPUP ================= */}
-      {showMailPopup && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white w-112.5 rounded shadow-xl p-6 text-center">
-            <h2 className="text-lg font-semibold mb-4">Contact Support</h2>
-
-            <p className="text-gray-600 mb-6">support@example.com</p>
-
-            <button
-              onClick={() => setShowMailPopup(false)}
-              className="bg-blue-900 text-white px-6 py-2 rounded hover:bg-blue-800 transition"
-            >
-              Close
-            </button>
-          </div>
+        {/* MS Outlook Option */}
+        <div
+          onClick={() => {
+            window.location.href = "mailto:info@bexexglobal.com";
+            setShowMainPopup(false);
+          }}
+          className="p-4 cursor-pointer hover:bg-gray-100"
+        >
+          MS Outlook
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
+      
 
       <style
         dangerouslySetInnerHTML={{

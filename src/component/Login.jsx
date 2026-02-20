@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import samplePDF from "../assets/pdf/sample.pdf";
+import samplePDF from "../assets/pdf/privacy-policy-audit-ex-portal.pdf";
 import backgroundImage from "../assets/images/login-background.avif";
 import logo from "../assets/Bexex-logo.png";
 
@@ -283,14 +283,14 @@ export default function Login() {
 
             <div className="divide-y">
               <div
-                onClick={openPDF}
+                // onClick={openPDF}
                 className="p-4 cursor-pointer hover:bg-gray-100"
               >
                 Mail
               </div>
 
               <div
-                onClick={openPDF}
+                // onClick={openPDF}
                 className="p-4 cursor-pointer hover:bg-gray-100"
               >
                 MS Outlook
