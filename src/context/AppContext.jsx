@@ -21,6 +21,7 @@ export const AppProvider = ({ children }) => {
     const stored = JSON.parse(localStorage.getItem("reportData")) || {};
     return (
       stored.auditSections || [
+ 
         {
           id: 1,
           title: "GENERAL SAFETY STATUS",
@@ -430,9 +431,1060 @@ export const AppProvider = ({ children }) => {
               ],
             },
 
+            {
+              id: 10,
+              title: "RISKS RELATED TO SANITATION & HYGIENE FACILITIES",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Toilets and urinals are adequate in number relative to workforce strength",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Sanitation facilities are clean, functional and maintained in good condition",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Separate toilet facilities are provided for male and female workers",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Hand washing stations with soap are available near toilet facilities and food areas",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "Changing rooms with lockers are available and accessible to workers",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 11,
+              title: "RISKS RELATED TO SITE SECURITY & ACCESS CONTROL",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Entry and exit points are controlled and a register of all persons on site is maintained",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Unauthorized persons are not observed in restricted or hazardous areas",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Visitors are issued PPE and briefed on site rules before entry",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Perimeter fencing or boundary is intact and adequate to prevent unauthorized entry",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                
+              ],
+            },
+
+            {
+              id: 12,
+              title: "RISKS RELATED TO OUTDOOR & YARD LIGHTING",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Outdoor yards, parking areas and material storage areas have adequate lighting for safe movement",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Internal roads and vehicle movement areas are adequately lit during night operations (Applicable if night shift selected)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Lighting in loading and unloading areas is sufficient for safe operations during all shifts",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
 
           ],
         },
+
+        {
+          id: 2,
+          title: "LABOUR & WORKFORCE MANAGEMENT",
+          subSections: [
+            {
+              id: 1,
+              title: "RISKS RELATED TO WORKER IDENTITY & GATE CONTROL",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "All workers on site are issued identity cards and are carrying them during work hours",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Entry and exit register is maintained with accurate details of all persons on",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Contract workers are registered separately with contractor name and deployment area noted",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "No unauthorized or unregistered person is observed working on site",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 2,
+              title: "RISKS RELATED TO SAFETY INDUCTION",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Safety induction records are available for every worker currently deployed on site",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Induction covers site rules, emergency procedure, PPE requirements and hazard awareness",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Induction is conducted in language understood by the worker",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Contractor and visitor induction records are maintained separately (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "Refresher induction is conducted at defined intervals for long-term workers (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 3,
+              title: "RISKS RELATED TO TRAINING & COMPETENCY",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Training records are available for all workers showing topics covered and dates",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Workers engaged in high risk tasks hold valid competency certificates (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Supervisors are trained in safety management and their training records are available (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Training is conducted in local language and worker understanding is assessed",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "Retraining is conducted when new hazards, processes or equipment are introduced (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 4,
+              title: "RISKS RELATED TO SUPERVISION & DEPLOYMENT",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Adequate number of supervisors are deployed relative to number of workers on site",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Supervisors are identifiable by vest, helmet colour or badge",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "No high risk work is observed being carried out without supervision",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Supervisors are aware of their safety responsibilities when asked during audit",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 5,
+              title: "RISKS RELATED TO CONTRACTOR SAFETY MANAGEMENT",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Contractor safety agreement or HSE clauses are part of the contract document",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Contractor has submitted safety plan or method statement before starting work",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Contractor workers are covered under insurance and records are available",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Contractor safety performance is monitored and records of safety meetings are maintained",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 6,
+              title: "RISKS RELATED TO VISITOR & THIRD PARTY MANAGEMENT",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Visitors are registered, issued PPE and accompanied by authorized person at all times",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Visitors are briefed on emergency procedure and assembly point before entering site 0",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Third party service personnel are treated as contractors and covered under induction process",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 7,
+              title: "RISKS RELATED TO PPE AVAILABILITY & USE",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Required PPE is available at point of use and issued to workers without delay",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Workers are observed wearing correct PPE for their task without prompting during audit walk",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "PPE is in good condition — no damaged, worn out or ill-fitting PPE is observed in use",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "PPE storage and issue system is in place and replacement procedure is defined",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "PPE selected conforms to relevant Indian or international standard (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 6,
+                  question:
+                    "Contractor workers are provided with required PPE and compliance is enforced",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 8,
+              title: "RISKS RELATED TO WORKING HOURS & SHIFT MANAGEMENT",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Working hours register is maintained and no worker is observed working beyond permissible hours",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Shift handover procedure is followed and incoming shift is briefed on ongoing hazards",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Overtime records are maintained and excessive overtime is not observed without authorization",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 9,
+              title: "RISKS RELATED TO NIGHT SHIFT OPERATIONS",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Adequate supervision is maintained during night shift operations",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "All safety facilities including first aid, emergency lighting and communication are functional during night shift",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Female workers on night shift are provided with legally required facilities and protection as per applicable law",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Security arrangements are adequate during night shift hours",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 10,
+              title: "RISKS RELATED TO FATIGUE & WORKER FITNESS",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Workers showing signs of fatigue, illness or impairment are not observed operating machinery or doing high risk work",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Adequate rest breaks are provided during long shifts and records are available",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Fit for work assessment is conducted for workers returning after illness or injury",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 11,
+              title: "RISKS RELATED TO WORKER WELFARE & GRIEVANCE",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Canteen or lunch area is clean, maintained separately from work areas and chemical storage",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Workers are aware of the grievance reporting mechanism and it is accessible to all",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "No evidence of harassment, intimidation or punishment for reporting safety concerns is observed",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Worker welfare amenities including lockers, rest areas and canteen are adequate for workforce strength",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                
+              ],
+            },
+
+            {
+              id: 12,
+              title: "RISKS RELATED TO SAFETY CULTURE & WORKER PARTICIPATION",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Toolbox talks are conducted before work commencement and attendance records are maintained",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Workers can explain site emergency procedure and assembly point location when asked",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Near miss reporting system is active and workers are aware of how to report",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Safety suggestions from workers are recorded and responses are communicated back",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "Safety committee meetings are held at defined frequency and minutes are available (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+          ],
+        },
+
+        {
+          id: 3,
+          title: "OCCUPATIONAL HEALTH & HYGIENE",
+          subSections: [
+            {
+              id: 1,
+              title: "RISKS RELATED TO MEDICAL SURVEILLANCE & HEALTH MONITORING",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Pre-employment medical examination records are available for all workers (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Periodic medical examination is conducted for all workers at defined intervals (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Workers exposed to chemicals, noise, dust or heat are under specific health surveillance program (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Medical records are maintained confidentially and available for review",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "Occupational health centre or medical room is available and functional on site",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 2,
+              title: "RISKS RELATED TO NOISE & HEARING PROTECTION",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "High noise areas are identified, demarcated and mandatory hearing protection signs are posted",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Noise level monitoring is conducted at defined intervals (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Engineering controls such as enclosures, barriers or dampers are in place to reduce noise at source",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "— Workers in high noise areas are provided with appropriate hearing protection and are observed using it",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "Audiometric testing is conducted for workers regularly exposed to high noise (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 3,
+              title: "RISKS RELATED TO DUST, FUMES & AIR QUALITY",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Dust and fume generating processes have local exhaust ventilation systems installed",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Ventilation systems are maintained and performance tested at defined intervals (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Airborne dust and fume levels are monitored and records are available (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Workers exposed to dust or fumes are provided with appropriate respiratory protection",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 5,
+                  question:
+                    "No recirculation of contaminated exhaust air back into work areas is observed",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 4,
+              title: "RISKS RELATED TO VENTILATION & THERMAL COMFORT",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Natural or mechanical ventilation is adequate in all enclosed work areas",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Hot air, steam or process emissions are captured at source and not allowed to accumulate",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Work areas with excessive heat have supplementary ventilation or cooling arrangements",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Ventilation maintenance records are available (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 5,
+              title: "RISKS RELATED TO ILLUMINATION",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Illumination levels in all work areas are adequate for the nature of work being performed",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Illumination study has been carried out and records are available (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Lighting fittings are cleaned and replaced at defined intervals to maintain required levels (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Workers performing precision or close work are provided with task lighting where required",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 6,
+              title: "RISKS RELATED TO HEAT STRESS & COLD WORK",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Heat stress risk areas are identified and control measures such as rest schedules, shade and water are in place",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Workers in hot environments are observed taking adequate water and rest breaks",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "New workers are acclimatized gradually before full deployment in hot work areas",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Cold storage or cold work areas have defined entry procedures and duration limits",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 7,
+              title: "RISKS RELATED TO ERGONOMICS & MANUAL STRAIN",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Workstations are assessed for ergonomic risks including awkward posture, repetitive motion and force",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Mechanical aids are available and used for heavy or repetitive lifting tasks",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Workers are trained in safe manual handling techniques (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Ergonomic risk assessment findings are implemented at workstations (Next Due Date: ______)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+            {
+              id: 8,
+              title: "RISKS RELATED TO PERSONAL HYGIENE & WORKER HEALTH PRACTICES",
+              questions: [
+                {
+                  id: 1,
+                  question:
+                    "Workers are observed washing hands before eating and after handling chemicals or waste",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 2,
+                  question:
+                    "Eating, drinking and smoking is restricted to designated areas only",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 3,
+                  question:
+                    "Workers handling food, chemicals or biological material are provided with appropriate gloves and hygiene facilities",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+                {
+                  id: 4,
+                  question:
+                    "Pest control is conducted at defined intervals in canteen, kitchen and food storage areas **(Next Due Date: ****)",
+                  status: "na",
+                  isSynced: false,
+                  images: [],
+                  description: "",
+                },
+              ],
+            },
+
+          ],
+        },
+
+
       ]
     );
   });
