@@ -8,7 +8,7 @@ export default function TopInfoBar() {
                 <Calendar size={18} className="text-gray-400" />
                 <div>
                     <p className="text-[10px] text-gray-400 uppercase font-medium">Visit</p>
-                    <p className="font-semibold text-gray-700 text-[13px]">11-02-2026</p>
+                    <p className="font-semibold text-gray-700 text-[13px]">20-02-2026</p>
                 </div>
             </div>
 
@@ -16,17 +16,18 @@ export default function TopInfoBar() {
                 <Building2 size={18} className="text-gray-400" />
                 <div>
                     <p className="text-[10px] text-gray-400 uppercase font-medium">Promoter</p>
-                    <p className="font-semibold text-gray-700 text-[13px]">INDITEX TRENT RETAIL INDIA PRIVATE, LTD.</p>
+                    <p className="font-semibold text-gray-700 text-[13px]">Bexex Global Pvt. Ltd</p>
                 </div>
             </div>
 
             <div className="flex flex-col justify-center px-6 border-r border-gray-200 h-full min-w-[120px]">
                 <p className="text-[10px] text-gray-400 uppercase font-medium">Project</p>
-                <p className="text-lg font-bold text-gray-800 leading-none">Bershka</p>
+                <p className="font-semibold text-gray-700 text-[13px]">IGL</p>
             </div>
 
             <div className="hidden lg:flex flex-col justify-center px-6 border-r border-gray-200 h-full flex-1 min-w-[200px]">
-                <p className="text-[10px] text-gray-400 line-clamp-2 uppercase">
+                <p className="text-[10px] text-gray-400 uppercase font-medium">Project Identification</p>
+                <p className="font-semibold text-gray-700 text-[13px]">
                     BANGALORE - SANJEEVINI NAGAR - YES - BERSHKA - MALL OF ASIA - INITIAL PROJECT 0
                 </p>
             </div>

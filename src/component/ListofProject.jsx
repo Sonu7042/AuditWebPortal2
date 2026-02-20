@@ -105,10 +105,10 @@ const ListofProject = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-700 text-gray-800 font-sans">
+    <div className="min-h-screen bg-gray-900 text-gray-800 font-sans">
       {/* ================= HEADER ================= */}
       <div className="bg-white border-b sticky top-0 z-10">
-        <div className="px-8 h-20 flex items-center justify-between">
+        <div className="lg:px-8 md:px-4 h-20 flex items-center justify-between">
           <div className="w-full flex items-center justify-between">
             <button
               onClick={() => navigate("/dashboard")}
@@ -124,7 +124,7 @@ const ListofProject = () => {
         </div>
 
         {/* Info Bar */}
-        <div className="px-8 h-12 flex items-center justify-between border-t text-sm text-gray-500 bg-gray-50">
+        <div className="lg:px-8 md:px-4 h-12 flex items-center justify-between border-t text-sm text-gray-500 bg-gray-50">
           <div className="w-full flex items-center justify-between">
             <div className="flex gap-8">
             <Info size={20} />
@@ -168,32 +168,32 @@ const ListofProject = () => {
       </div>
 
       {/* ================= PROJECT LIST ================= */}
-      <div className="py-6 space-y-4 px-8">
+      <div className="py-6 space-y-4 lg:px-8 md:px-2">
         {projects.map((project) => (
           <div
             key={project.id}
             className="bg-white border shadow-sm hover:shadow-md transition flex flex-col md:flex-row overflow-hidden"
           >
             {/* Status */}
-            <div className="md:w-40 w-full flex md:flex-col items-center justify-between md:justify-center gap-2 p-4 bg-gray-50 border-b md:border-b-0 md:border-r">
+            <div className="md:w-40 w-full flex md:flex-col items-center justify-between md:justify-center gap-2 lg:p-4 md:p-2 bg-gray-50 border-b md:border-b-0 md:border-r">
               {project.isUpdated ? (
                 <div className="">
                   <CheckCircle
                     className="text-green-600"
-                    size={62}
+                    size={52}
                   />
                 </div>
               ) : (
                 <div className="">
                   <LuClockAlert
                     className="text-red-500"
-                    size={62}
+                    size={52}
                   />
                 </div>
               )}
 
               <div className="text-[11px] text-gray-500 text-center">
-                <div className="font-semibold text-[14px]">
+                <div className="font-semibold lg:text-[14px] md:text-[10px]">
                   Last download
                 </div>
                 <div>{project.lastDownload}</div>
@@ -201,19 +201,19 @@ const ListofProject = () => {
             </div>
 
             {/* Info */}
-            <div className="flex-1 px-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex-1 lg:px-8 md:px-4 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex-1">
-                <h3 className=" w-full pb-3 border-b border-gray-300 text-3xl font-normal mb-3">
+                <h3 className=" w-full lg:pb-3 md:pb-1 border-b border-gray-300 lg:text-2xl md:text-lg font-normal lg:mb-3 md:mb-1">
                   {project.name}
                 </h3>
 
-                <p className="text-md text-gray-400 mb-2 truncate">
+                <p className="lg:text-[12px] md:text-[10px] text-gray-400 mb-2 truncate">
                   {project.details}
                 </p>
 
                 <div className="flex flex-wrap gap-6 text-xs text-gray-500">
                   <div>
-                    <span className="font-semibold text-sm">
+                    <span className="font-semibold">
                       Market:
                     </span>{" "}
                     {project.market}

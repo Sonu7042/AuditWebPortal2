@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import {
-  Wrench,
-  Hammer,
-  Paintbrush,
-  Building2,
-  HardHat,
-  Truck,
+  // Wrench,
+  // Hammer,
+  // Paintbrush,
+  // Building2,
+  // HardHat,
+  // Truck,
   Ruler,
-  Brush,
+  // Brush,
   ClipboardCheck,
-  Package,
+  // Package,
   Users,
   Settings,
   ShieldCheck,
   FlaskConical,
   FileSearch,
 } from "lucide-react";
+import { PiPipeWrench , PiPaintBrushBroad , } from "react-icons/pi";
+import { GiCrane , GiDigDug ,} from "react-icons/gi";
+import { BsBuildings } from "react-icons/bs";
+import { GrUserWorker } from "react-icons/gr";
+import { IoHammerOutline } from "react-icons/io5";
 
 import ProjectHeader from "./ProjectCompaniesComponents/ProjectHeader";
 import TopInfoBar from "./ProjectCompaniesComponents/TopInfoBar";
@@ -68,14 +73,14 @@ export default function ProjectCompanies() {
   ];
 
   const services = [
-    { title: "General Projects", icon: <Wrench size={28} /> },
-    { title: "Demolitions", icon: <Hammer size={28} /> },
-    { title: "Earthworks", icon: <Truck size={28} /> },
-    { title: "Structures", icon: <Building2 size={28} /> },
-    { title: "Labour & Cleaning", icon: <HardHat size={28} /> },
-    { title: "Installation", icon: <Ruler size={28} /> },
-    { title: "Woodwork / Metalwork", icon: <Brush size={28} /> },
-    { title: "Painting & Finishes", icon: <Paintbrush size={28} /> },
+    { title: "General Projects", icon: <PiPipeWrench  /> },
+    { title: "Demolitions", icon: <GiCrane /> },
+    { title: "Earthworks", icon: <GiDigDug  /> },
+    { title: "Structures", icon: <BsBuildings  /> },
+    { title: "Labour & Cleaning", icon: <GrUserWorker  /> },
+    { title: "Installation", icon: <Ruler /> },
+    { title: "Woodwork / Metalwork", icon: <IoHammerOutline  /> },
+    { title: "Painting & Finishes", icon: <PiPaintBrushBroad /> },
   ];
 
   const reportSections = [
@@ -171,7 +176,7 @@ export default function ProjectCompanies() {
   }, []);
 
   return (
-    <div className="h-screen bg-[#f5f6f7] flex flex-col relative overflow-hidden">
+    <div className="h-screen bg-[#f5f6f7] flex flex-col relative ">
       <ProjectHeader
         isReport={isReport}
         isSummary={isSummary}

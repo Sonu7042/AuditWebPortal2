@@ -18,7 +18,7 @@ export default function CompanySelection({
         <p className="text-sm font-medium text-gray-700">
           Select companies in project
         </p>
-        <HelpCircle size={16} className="text-gray-500" />
+        <HelpCircle size={20} className="text-blue-500" />
       </div>
 
       {companies.map((company, index) => (

@@ -52,7 +52,7 @@ export default function ProjectReports() {
     <div className="min-h-screen bg-gray-700">
 
       {/* HEADER */}
-      <div className="bg-white h-20 border-b border-gray-300 px-6 py-4 flex items-center justify-between">
+      <div className="bg-white h-20 border-b border-gray-300 lg:px-8 md:px-4 py-4 flex items-center justify-between">
           <button onClick={() => window.history.back()} className="p-2 hover:bg-gray-100 rounded-full border-2 border-gray-300 transition-colors cursor-pointer" >
             <ChevronLeft size={24} />
           </button>
@@ -63,7 +63,7 @@ export default function ProjectReports() {
         <Info className="w-6 h-6 text-blue-500 cursor-pointer" size={20} />
       </div>
 
-      <div className="flex items-center gap-8 px-8 h-12 bg-gray-100 text-sm text-gray-600 border-b border-gray-200">
+      <div className="flex items-center gap-8 lg:px-8 md:px-4 h-12 bg-gray-100 text-sm text-gray-600 border-b border-gray-200">
         <Info size={20} />
         <span className="text-[16px]">
           List of completed reports pending synchronisation

@@ -12,8 +12,8 @@ export default function AuditGrid({
   ];
 
   return (
-    <div className="flex-1 overflow-y-auto p-6">
-      <div className="grid grid-cols-2 gap-4">
+    <div className="flex-1 p-4 sm:p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
         {audits.map((audit, index) => {
           const isAllowed = allowedAudits.includes(audit);
 
@@ -25,7 +25,7 @@ export default function AuditGrid({
                   setSelectedAudit(audit);
                 }
               }}
-              className={`p-4 rounded-lg border transition-all duration-300
+              className={`lg:p-4 md:p-2 sm:p-5 rounded-md border transition-all duration-300 lg:text-[16px] md:text-[10px] break-words
                 ${
                   !isAllowed
                     ? "opacity-40 pointer-events-none cursor-not-allowed"
