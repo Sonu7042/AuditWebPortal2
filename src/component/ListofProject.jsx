@@ -14,9 +14,9 @@ import { useNavigate } from "react-router-dom";
 const defaultProjects = [
   {
     id: 1,
-    name: "Bershka",
+    name: "IGL",
     details:
-      "BANGALORE - SANJEEVINI NAGAR - YES - BERSHKA - MALL OF ASIA - INITIAL PROJECT 0",
+      "BANGALORE  - SANJEEVINI NAGAR - YES - BERSHKA - MALL OF ASIA - INITIAL PROJECT 0",
     market: "INDIA",
     promoter: "INDITEX TRENT RETAIL INDIA PRIVATE, LTD.",
     lastDownload: "11-02-2026 20:12:56",
@@ -24,7 +24,7 @@ const defaultProjects = [
   },
   {
     id: 2,
-    name: "Zara",
+    name: "IGL",
     details:
       "MUMBAI - PHOENIX MARKETCITY - YES - ZARA - GROUND FLOOR - INITIAL PROJECT 1",
     market: "INDIA",
