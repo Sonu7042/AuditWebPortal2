@@ -49,7 +49,7 @@ export default function ProjectReports() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-700">
+    <div className="min-h-screen bg-gray-800">
 
       {/* HEADER */}
       <div className="bg-white h-20 border-b border-gray-300 lg:px-8 md:px-4 py-4 flex items-center justify-between">
@@ -89,8 +89,8 @@ export default function ProjectReports() {
               >
 
                 {/* LEFT ID */}
-                <div className="w-40 border-r border-gray-300 flex flex-col items-center justify-center p-6">
-                  <div className="w-26 h-26 rounded-full bg-cyan-100 text-2xl text-gray-700 flex items-center justify-center font-medium">
+                <div className="w-40 border-r bg-white border-gray-300 flex flex-col items-center justify-center p-6">
+                  <div className="w-26 h-26 rounded-full bg-cyan-100 text-2xl text-gray-800 flex items-center justify-center font-medium">
                     N. {report.id}
                   </div>
                 </div>
