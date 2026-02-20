@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const defaultProjects = [
   {
     id: 1,
-    name: "IGL",
+    name: "Indraprastha Gas Limited",
     details:
       "BANGALORE  - SANJEEVINI NAGAR - YES - BERSHKA - MALL OF ASIA - INITIAL PROJECT 0",
     market: "INDIA",
@@ -24,7 +24,7 @@ const defaultProjects = [
   },
   {
     id: 2,
-    name: "IGL",
+    name: "Indraprastha Gas Limited",
     details:
       "MUMBAI - PHOENIX MARKETCITY - YES - ZARA - GROUND FLOOR - INITIAL PROJECT 1",
     market: "INDIA",
